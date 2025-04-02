@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rituel - Votre routine mensuelle</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧴</text></svg>">
+  <title>Créer mon kit - Rituel</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -102,14 +101,12 @@
       <h2>🧾 Mon kit personnalisé</h2>
       <ul id="kit-summary"></ul>
 
-     <form name="kit-form" method="POST" data-netlify="true" action="/merci.html" hidden>
-  <input type="hidden" name="kit" id="kit-input" />
-</form>
+      <form name="kit-form" method="POST" data-netlify="true" action="/merci.html" hidden>
+        <input type="hidden" name="kit" id="kit-input" />
+      </form>
 
       <button onclick="submitKit()">✅ Envoyer mon kit</button>
-    <div id="confirmation" class="confirmation-popup">
-  <p>✅ Kit bien envoyé ! Merci 🙌</p>
-</div>
+    </div>
   </main>
 
   <script src="script.js"></script>
