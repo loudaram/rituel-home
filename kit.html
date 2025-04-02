@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Créer mon kit - Rituel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Créer mon kit Rituel</h1>
+    <p>Sélectionnez vos produits mensuels</p>
+  </header>
+
+  <main class="kit-builder">
+    <div class="product" data-name="Dentifrice">
+      <h3>🦷 Dentifrice</h3>
+      <label>Fréquence:
+        <select>
+          <option value="1/mois">1/mois</option>
+          <option value="1/2mois">1/2 mois</option>
+        </select>
+      </label>
+      <label>Quantité:
+        <input type="number" value="1" min="0" />
+      </label>
+      <button onclick="addToKit(this)">Ajouter</button>
+    </div>
+
+    <div class="product" data-name="Déodorant">
+      <h3>🧴 Déodorant</h3>
+      <label>Fréquence:
+        <select>
+          <option value="1/mois">1/mois</option>
+          <option value="1/2mois">1/2 mois</option>
+        </select>
+      </label>
+      <label>Quantité:
+        <input type="number" value="1" min="0" />
+      </label>
+      <button onclick="addToKit(this)">Ajouter</button>
+    </div>
+
+    <div class="product" data-name="Crème hydratante">
+      <h3>💧 Crème hydratante</h3>
+      <label>Fréquence:
+        <select>
+          <option value="1/mois">1/mois</option>
+          <option value="1/2mois">1/2 mois</option>
+        </select>
+      </label>
+      <label>Quantité:
+        <input type="number" value="1" min="0" />
+      </label>
+      <button onclick="addToKit(this)">Ajouter</button>
+    </div>
+
+    <div class="product" data-name="Gel douche">
+      <h3>🚿 Gel douche</h3>
+      <label>Fréquence:
+        <select>
+          <option value="1/mois">1/mois</option>
+          <option value="1/2mois">1/2 mois</option>
+        </select>
+      </label>
+      <label>Quantité:
+        <input type="number" value="1" min="0" />
+      </label>
+      <button onclick="addToKit(this)">Ajouter</button>
+    </div>
+
+    <div class="product" data-name="Shampoing">
+      <h3>🧼 Shampoing</h3>
+      <label>Fréquence:
+        <select>
+          <option value="1/mois">1/mois</option>
+          <option value="1/2mois">1/2 mois</option>
+        </select>
+      </label>
+      <label>Quantité:
+        <input type="number" value="1" min="0" />
+      </label>
+      <button onclick="addToKit(this)">Ajouter</button>
+    </div>
+
+    <div class="product" data-name="Brosse à dents">
+      <h3>🪥 Brosse à dents</h3>
+      <label>Fréquence:
+        <select>
+          <option value="1/mois">1/mois</option>
+          <option value="1/2mois">1/2 mois</option>
+        </select>
+      </label>
+      <label>Quantité:
+        <input type="number" value="1" min="0" />
+      </label>
+      <button onclick="addToKit(this)">Ajouter</button>
+    </div>
+
+    <div class="summary">
+      <h2>🧾 Mon kit personnalisé</h2>
+      <ul id="kit-summary"></ul>
+
+      <form name="kit-form" method="POST" data-netlify="true" hidden>
+        <input type="hidden" name="kit" id="kit-input" />
+      </form>
+
+      <button onclick="submitKit()">✅ Envoyer mon kit</button>
+      <div id="confirmation" style="display:none; margin-top:10px; color:green;">✅ Kit envoyé ! Merci 🙌</div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
