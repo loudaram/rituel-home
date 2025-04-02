@@ -81,7 +81,7 @@
     </form>
   </section>
 
-  <section class="section kit-builder">
+<section class="section kit-builder">
   <h2>🧴 Créez votre kit personnalisé</h2>
 
   <div class="product" data-name="Dentifrice">
@@ -112,13 +112,11 @@
     <button onclick="addToKit(this)">Ajouter</button>
   </div>
 
-  <!-- Tu peux ajouter d’autres produits ici -->
-
   <div class="summary">
     <h3>🧾 Mon kit :</h3>
     <ul id="kit-summary"></ul>
 
-    <!-- Netlify form hidden -->
+    <!-- Netlify hidden form -->
     <form name="kit-form" method="POST" data-netlify="true" hidden>
       <input type="hidden" name="kit" id="kit-input" />
     </form>
