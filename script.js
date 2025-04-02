@@ -20,7 +20,8 @@ function submitKit() {
   const items = Array.from(summaryList.children).map(li => li.textContent);
   if (items.length === 0) {
     alert("Ajoutez au moins un produit à votre kit !");
-    return;
+    return
+      confirmation.classList.add("show");;
   }
 
   kitInput.value = items.join('; ');
