@@ -31,8 +31,27 @@ header p {
   max-width: 1000px;
   margin: 0 auto;
 }
-.subscribe form {
-  margin-top: 1rem;
+.features, .kits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.feature, .kit {
+  flex: 1 1 250px;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+}
+.kit {
+  background: #eef1f4;
+}
+.testimonials blockquote {
+  font-style: italic;
+  margin: 1rem 0;
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
 }
 .subscribe input {
   padding: 0.5rem;
