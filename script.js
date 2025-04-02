@@ -20,16 +20,9 @@ function submitKit() {
   const items = Array.from(summaryList.children).map(li => li.textContent);
   if (items.length === 0) {
     alert("Ajoutez au moins un produit à votre kit !");
-    return
-      confirmation.classList.add("show");;
+    return;
   }
 
   kitInput.value = items.join('; ');
   document.forms["kit-form"].submit();
-  confirmation.classList.add("show");
-}
-
-  kitInput.value = items.join('; ');
-  document.forms["kit-form"].submit();
-  confirmation.style.display = "block";
 }
