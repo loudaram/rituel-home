@@ -25,5 +25,10 @@ function submitKit() {
 
   kitInput.value = items.join('; ');
   document.forms["kit-form"].submit();
+  confirmation.classList.add("show");
+}
+
+  kitInput.value = items.join('; ');
+  document.forms["kit-form"].submit();
   confirmation.style.display = "block";
 }
