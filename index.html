@@ -81,6 +81,53 @@
     </form>
   </section>
 
+  <section class="section kit-builder">
+  <h2>🧴 Créez votre kit personnalisé</h2>
+
+  <div class="product" data-name="Dentifrice">
+    <h3>🦷 Dentifrice</h3>
+    <label>Fréquence:
+      <select>
+        <option value="1/mois">1/mois</option>
+        <option value="1/2mois">1/2 mois</option>
+      </select>
+    </label>
+    <label>Quantité:
+      <input type="number" value="1" min="0" />
+    </label>
+    <button onclick="addToKit(this)">Ajouter</button>
+  </div>
+
+  <div class="product" data-name="Déodorant">
+    <h3>🧴 Déodorant</h3>
+    <label>Fréquence:
+      <select>
+        <option value="1/mois">1/mois</option>
+        <option value="1/2mois">1/2 mois</option>
+      </select>
+    </label>
+    <label>Quantité:
+      <input type="number" value="1" min="0" />
+    </label>
+    <button onclick="addToKit(this)">Ajouter</button>
+  </div>
+
+  <!-- Tu peux ajouter d’autres produits ici -->
+
+  <div class="summary">
+    <h3>🧾 Mon kit :</h3>
+    <ul id="kit-summary"></ul>
+
+    <!-- Netlify form hidden -->
+    <form name="kit-form" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="kit" id="kit-input" />
+    </form>
+
+    <button onclick="submitKit()">✅ Envoyer mon kit</button>
+    <div id="confirmation" style="display:none; color:green; margin-top:10px;">Kit envoyé ! Merci 🙌</div>
+  </div>
+</section>
+
   <form name="contact" netlify hidden>
     <input type="email" name="email" />
   </form>
@@ -89,5 +136,37 @@
   <input type="email" name="email" />
 </form>
 
+  <script>
+  const summaryList = document.getElementById('kit-summary');
+  const confirmation = document.getElementById('confirmation');
+  const kitInput = document.getElementById('kit-input');
+
+  function addToKit(button) {
+    const product = button.parentElement;
+    const name = product.getAttribute('data-name');
+    const freq = product.querySelector('select').value;
+    const qty = product.querySelector('input').value;
+
+    if (qty <= 0) return;
+
+    const item = `${name} - ${qty}x (${freq})`;
+    const li = document.createElement('li');
+    li.textContent = item;
+    summaryList.appendChild(li);
+  }
+
+  function submitKit() {
+    const items = Array.from(summaryList.children).map(li => li.textContent);
+    if (items.length === 0) {
+      alert("Ajoutez au moins un produit à votre kit !");
+      return;
+    }
+
+    kitInput.value = items.join('; ');
+    document.forms["kit-form"].submit();
+    confirmation.style.display = "block";
+  }
+</script>
+  
 </body>
 </html>
