@@ -71,12 +71,15 @@
     </blockquote>
   </section>
 
-  <section class="section subscribe">
-    <h2>Inscrivez-vous pour tester Rituel</h2>
-    <p>Recevez une offre de lancement exclusive</p>
-    <input type="email" placeholder="Votre email">
-    <button>S'inscrire</button>
-  </section>
+<section class="section subscribe">
+  <h2>Inscrivez-vous pour tester Rituel</h2>
+  <p>Recevez une offre de lancement exclusive</p>
+
+  <form name="contact" method="POST" data-netlify="true">
+    <input type="email" name="email" placeholder="Votre email" required />
+    <button type="submit">S'inscrire</button>
+  </form>
+</section>
 
   <footer>
     <p>&copy; Rituel 2025</p>
@@ -86,6 +89,10 @@
       <a href="#">Contact</a>
     </div>
   </footer>
+
+  <form name="contact" netlify hidden>
+  <input type="email" name="email" />
+</form>
 
 </body>
 </html>
