@@ -103,7 +103,3 @@ footer a {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-  color: #aaa;
-  text-decoration: none;
-  margin: 0 1rem;
-}
