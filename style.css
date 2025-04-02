@@ -1,75 +1,73 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f7f7f7;
 }
 header {
-  text-align: center;
-  padding: 2rem;
-  background: #007bff;
+  background: #007BFF;
   color: white;
+  padding: 2rem;
+  text-align: center;
+}
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+header p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
 }
 .cta-btn {
   background: white;
+  color: #007BFF;
   padding: 0.75rem 1.5rem;
-  border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 1rem;
 }
-.kit-builder {
+.section {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.features, .kits {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: 2rem;
   justify-content: center;
 }
-.product {
-  background: white;
+.feature, .kit {
+  flex: 1 1 250px;
   padding: 1rem;
+  background: #ffffff;
   border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.testimonials blockquote {
+  font-style: italic;
+  margin: 1rem 0;
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+}
+.subscribe input {
+  padding: 0.5rem;
+  font-size: 1rem;
   width: 250px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  max-width: 100%;
+  margin-right: 0.5rem;
 }
-.product h3 {
-  margin-top: 0;
-}
-.product label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.product input, .product select {
-  width: 100%;
-  padding: 0.25rem;
-  margin-top: 0.25rem;
-}
-.summary {
-  width: 100%;
-  max-width: 600px;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-.summary h2 {
-  margin-top: 0;
-}
-.summary ul {
-  list-style: none;
-  padding: 0;
-}
-.summary li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
-}
-.summary button {
-  margin-top: 1rem;
+.subscribe button {
   padding: 0.5rem 1rem;
-  background: green;
+  font-size: 1rem;
+  background: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
 }
 footer {
   background: #333;
