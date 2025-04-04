@@ -1,5 +1,4 @@
 const summaryList = document.getElementById('kit-summary');
-const confirmation = document.getElementById('confirmation');
 const kitInput = document.getElementById('kit-input');
 
 function addToKit(button) {
@@ -25,4 +24,25 @@ function submitKit() {
 
   kitInput.value = items.join('; ');
   document.forms["kit-form"].submit();
+}
+
+// 🔍 Filtres dynamiques
+function filterProducts(category) {
+  const products = document.querySelectorAll('.product');
+  const buttons = document.querySelectorAll('.filters button');
+
+  products.forEach(product => {
+    const productCategory = product.getAttribute('data-category');
+    if (category === 'tout' || productCategory === category) {
+      product.style.display = 'block';
+    } else {
+      product.style.display = 'none';
+    }
+  });
+
+  buttons.forEach(btn => btn.classList.remove('active'));
+  const activeBtn = Array.from(buttons).find(btn => 
+    btn.textContent.toLowerCase() === category
+  );
+  if (activeBtn) activeBtn.classList.add('active');
 }
