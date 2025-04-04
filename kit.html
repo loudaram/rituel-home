@@ -5,6 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Créer mon kit - Rituel</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧴</text></svg>">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f7f7f7;
+    }
+    header {
+      background: #007BFF;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.5rem;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem auto;
+      flex-wrap: wrap;
+    }
+
+    .filters button {
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+      border: 2px solid #007BFF;
+      border-radius: 30px;
+      background: white;
+      color: #007BFF;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .filters button:hover {
+      background: #007BFF;
+      color: white;
+    }
+
+    .filters button.active {
+      background: #007BFF;
+      color: white;
+    }
+
+    .kit-builder {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .product {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 1rem;
+      width: 250px;
+      transition: opacity 0.3s ease;
+    }
+
+    .product[style*="display: none"] {
+      opacity: 0;
+    }
+
+    .summary {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 100%;
+      margin-top: 3rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .summary h2 {
+      margin-top: 0;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #28a745;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -12,8 +118,16 @@
     <p>Sélectionnez vos produits mensuels</p>
   </header>
 
+  <!-- Filtres -->
+  <div class="filters">
+    <button onclick="filterProducts('tout')" class="active">Tout</button>
+    <button onclick="filterProducts('homme')">Homme</button>
+    <button onclick="filterProducts('femme')">Femme</button>
+    <button onclick="filterProducts('bébé')">Bébé</button>
+  </div>
+
   <main class="kit-builder">
-    <div class="product" data-name="Dentifrice">
+    <div class="product" data-name="Dentifrice" data-category="bébé">
       <h3>🦷 Dentifrice</h3>
       <label>Fréquence:
         <select>
@@ -27,7 +141,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Déodorant">
+    <div class="product" data-name="Déodorant" data-category="femme">
       <h3>🧴 Déodorant</h3>
       <label>Fréquence:
         <select>
@@ -41,7 +155,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Crème hydratante">
+    <div class="product" data-name="Crème hydratante" data-category="femme">
       <h3>💧 Crème hydratante</h3>
       <label>Fréquence:
         <select>
@@ -55,7 +169,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Gel douche">
+    <div class="product" data-name="Gel douche" data-category="homme">
       <h3>🚿 Gel douche</h3>
       <label>Fréquence:
         <select>
@@ -69,7 +183,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Shampoing">
+    <div class="product" data-name="Shampoing" data-category="homme">
       <h3>🧼 Shampoing</h3>
       <label>Fréquence:
         <select>
@@ -83,7 +197,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Brosse à dents">
+    <div class="product" data-name="Brosse à dents" data-category="bébé">
       <h3>🪥 Brosse à dents</h3>
       <label>Fréquence:
         <select>
