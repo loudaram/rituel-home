@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Créer mon kit - Rituel</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧴</text></svg>">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 
@@ -15,53 +16,82 @@
       color: #333;
       background: #f7f7f7;
     }
+
     header {
       background: #007BFF;
       color: white;
       padding: 2rem;
       text-align: center;
     }
+
     header h1 {
       font-family: 'Raleway', sans-serif;
       font-size: 2.5rem;
       margin: 0;
       letter-spacing: 2px;
     }
+
     header p {
       font-size: 1.2rem;
       margin: 1rem 0;
     }
 
-    .filters {
+    /* --- MENU CATEGORIES --- */
+    .menu-categories ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin: 2rem auto;
       flex-wrap: wrap;
+      justify-content: center;
+      background: #f7f7f7;
+      padding: 1rem;
+      gap: 2rem;
     }
 
-    .filters button {
-      padding: 0.5rem 1.25rem;
-      font-size: 1rem;
-      border: 2px solid #007BFF;
-      border-radius: 30px;
-      background: white;
+    .menu-categories li {
+      position: relative;
+    }
+
+    .menu-categories a {
+      text-decoration: none;
+      font-weight: bold;
       color: #007BFF;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.2s ease;
+      font-family: 'Raleway', sans-serif;
+      padding: 0.5rem;
+      display: block;
     }
 
-    .filters button:hover {
-      background: #007BFF;
-      color: white;
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 1rem;
+      z-index: 1000;
+      min-width: 220px;
     }
 
-    .filters button.active {
-      background: #007BFF;
-      color: white;
+    .dropdown:hover .submenu {
+      display: block;
     }
 
+    .submenu li {
+      margin: 0.5rem 0;
+    }
+
+    .submenu a {
+      color: #333;
+    }
+
+    .submenu a:hover {
+      color: #007BFF;
+    }
+
+    /* --- PRODUITS ET KIT --- */
     .kit-builder {
       padding: 2rem;
       display: flex;
@@ -79,8 +109,38 @@
       transition: opacity 0.3s ease;
     }
 
-    .product[style*="display: none"] {
-      opacity: 0;
+    .product h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .product label {
+      display: block;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .product input,
+    .product select {
+      margin-left: 0.5rem;
+      padding: 0.2rem;
+      font-size: 1rem;
+    }
+
+    .product button {
+      margin-top: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: none;
+      background: #007BFF;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .product button:hover {
+      background: #0056b3;
     }
 
     .summary {
@@ -97,37 +157,100 @@
       margin-top: 0;
     }
 
-    button {
+    .summary ul {
+      padding-left: 1.5rem;
+    }
+
+    .summary button {
       margin-top: 1rem;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.5rem;
+      font-size: 1rem;
       border: none;
       background: #28a745;
       color: white;
-      border-radius: 4px;
+      border-radius: 5px;
       cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s ease;
     }
 
-    button:hover {
+    .summary button:hover {
       background: #218838;
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Créer mon kit Rituel</h1>
     <p>Sélectionnez vos produits mensuels</p>
   </header>
 
-  <!-- Filtres -->
-  <div class="filters">
-    <button onclick="filterProducts('tout')" class="active">Tout</button>
-    <button onclick="filterProducts('homme')">Homme</button>
-    <button onclick="filterProducts('femme')">Femme</button>
-    <button onclick="filterProducts('bébé')">Bébé</button>
-  </div>
+  <!-- MENU CATEGORIES -->
+  <nav class="menu-categories">
+    <ul>
+      <li class="dropdown"><a href="#">Déodorant</a></li>
+
+      <li class="dropdown">
+        <a href="#">Savons & Shampooing</a>
+        <ul class="submenu">
+          <li><a href="/produits/savon-liquide.html">Liquide</a></li>
+          <li><a href="/produits/savon-solide.html">Solide</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Dentifrice & Brosse à dents</a>
+        <ul class="submenu">
+          <li><a href="/produits/brosse-electrique.html">Électrique</a></li>
+          <li><a href="/produits/brosse-manuelle.html">Manuel</a></li>
+          <li><a href="/produits/dentifrice.html">Dentifrice</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Intime Homme</a>
+        <ul class="submenu">
+          <li><a href="/produits/barbe.html">Barbe</a></li>
+          <li><a href="/produits/preservatifs.html">Préservatifs</a></li>
+          <li><a href="/produits/cheveux-homme.html">Cheveux</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Intime Femme</a>
+        <ul class="submenu">
+          <li><a href="/produits/menstruation.html">Menstruation</a></li>
+          <li><a href="/produits/epilation.html">Épilation</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Bébé</a>
+        <ul class="submenu">
+          <li><a href="/produits/couches.html">Couches</a></li>
+          <li><a href="/produits/lait.html">Lait</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Médicaments sans ordonnance</a>
+        <ul class="submenu">
+          <li><a href="/produits/sommeil.html">Sommeil</a></li>
+          <li><a href="/produits/digestion.html">Digestion</a></li>
+          <li><a href="/produits/tabac.html">Tabac</a></li>
+          <li><a href="/produits/minceur.html">Minceur</a></li>
+          <li><a href="/produits/ophtalmologie.html">Ophtalmologie</a></li>
+          <li><a href="/produits/vitamines.html">Vitamines</a></li>
+          <li><a href="/produits/maux-de-tete.html">Maux de tête</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
   <main class="kit-builder">
-    <div class="product" data-name="Dentifrice" data-category="bébé">
+    <!-- Produits -->
+    <div class="product" data-name="Dentifrice">
       <h3>🦷 Dentifrice</h3>
       <label>Fréquence:
         <select>
@@ -141,7 +264,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Déodorant" data-category="femme">
+    <div class="product" data-name="Déodorant">
       <h3>🧴 Déodorant</h3>
       <label>Fréquence:
         <select>
@@ -155,7 +278,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Crème hydratante" data-category="femme">
+    <div class="product" data-name="Crème hydratante">
       <h3>💧 Crème hydratante</h3>
       <label>Fréquence:
         <select>
@@ -169,7 +292,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Gel douche" data-category="homme">
+    <div class="product" data-name="Gel douche">
       <h3>🚿 Gel douche</h3>
       <label>Fréquence:
         <select>
@@ -183,7 +306,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Shampoing" data-category="homme">
+    <div class="product" data-name="Shampoing">
       <h3>🧼 Shampoing</h3>
       <label>Fréquence:
         <select>
@@ -197,7 +320,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
-    <div class="product" data-name="Brosse à dents" data-category="bébé">
+    <div class="product" data-name="Brosse à dents">
       <h3>🪥 Brosse à dents</h3>
       <label>Fréquence:
         <select>
@@ -211,6 +334,7 @@
       <button onclick="addToKit(this)">Ajouter</button>
     </div>
 
+    <!-- Résumé -->
     <div class="summary">
       <h2>🧾 Mon kit personnalisé</h2>
       <ul id="kit-summary"></ul>
