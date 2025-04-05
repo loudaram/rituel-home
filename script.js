@@ -1,6 +1,10 @@
+// Récupère les éléments du DOM
 const summaryList = document.getElementById('kit-summary');
 const kitInput = document.getElementById('kit-input');
 
+/**
+ * Ajoute un produit sélectionné au résumé du kit
+ */
 function addToKit(button) {
   const product = button.parentElement;
   const name = product.getAttribute('data-name');
@@ -15,6 +19,9 @@ function addToKit(button) {
   summaryList.appendChild(li);
 }
 
+/**
+ * Soumet le kit personnalisé via un formulaire Netlify
+ */
 function submitKit() {
   const items = Array.from(summaryList.children).map(li => li.textContent);
   if (items.length === 0) {
@@ -26,7 +33,10 @@ function submitKit() {
   document.forms["kit-form"].submit();
 }
 
-// 🔍 Filtres dynamiques
+/**
+ * (Optionnel) Filtres dynamiques par catégorie
+ * Actuellement inutilisé, mais peut être réactivé si besoin.
+ */
 function filterProducts(category) {
   const products = document.querySelectorAll('.product');
   const buttons = document.querySelectorAll('.filters button');
